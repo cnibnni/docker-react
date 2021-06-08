@@ -8,3 +8,22 @@ before_install:
 
 script:
   - docker run -e CI=true canozunal/docker-react npm run test
+
+# deploy:
+#   provider: elasticbeanstalk
+#   region: "us-west-2"
+#   app: "docker"
+#   env: "Docker-env"
+#   bucket_name: "BUCKETNAME"
+#   bucket_path: "APPNAME"
+#   on:
+#     branch: master
+
+
+# IAM -> Users -> Add User -> USERNAME -> Programmatic access & AWS Management Console access -> 
+# next -> attach policies -> "beanstalk" & full access -> create user -> KEYS
+
+# travis ci -> select repo -> settings -> env variables -> add the following keys:
+
+access_key_id: $AWS_ACCESS_KEY
+secret_access_key: $AWS_SECRET_KEY
